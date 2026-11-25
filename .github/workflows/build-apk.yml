@@ -37,7 +37,9 @@ jobs:
         run: |
           unzip -o taqweem_ahl_albayt_project.zip -d extracted
           cd extracted/taqweem_ahl_albayt_project
+          sed -i '/android:preview=/d' app/src/main/res/xml/dream_info.xml
           gradle assembleDebug
+          
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
